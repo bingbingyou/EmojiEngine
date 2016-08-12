@@ -58,9 +58,25 @@
     <Content Include="gulpfile.js" />
     <Content Include="hello.js" />
     <Content Include="index.html" />
+    <Content Include="libs\fpsmeter.js" />
+    <Content Include="libs\lz-string.js" />
+    <Content Include="libs\pixi-picture.js" />
+    <Content Include="libs\pixi-tilemap.js" />
+    <Content Include="libs\pixi.js" />
     <Content Include="main.js" />
     <Content Include="bin\Tool Plugin\PluginManagerExtender.js" />
+    <Content Include="MV_OriginalFile\plugins.js" />
+    <Content Include="MV_OriginalFile\rpg_core.js" />
+    <Content Include="MV_OriginalFile\rpg_managers.js" />
+    <Content Include="MV_OriginalFile\rpg_objects.js" />
+    <Content Include="MV_OriginalFile\rpg_scenes.js" />
+    <Content Include="MV_OriginalFile\rpg_sprites.js" />
+    <Content Include="MV_OriginalFile\rpg_windows.js" />
     <Content Include="package.json" />
+    <Content Include="scripts\Dummy.js" />
+    <Content Include="scripts\IntuitiveMenuButtonV3.js" />
+    <Content Include="scripts\Sprite_InteractiveButton.js" />
+    <None Include="scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
