@@ -1,4 +1,5 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="../bin/tool plugin/pluginmanagerextender.js" />
 /// <reference path="../gulpfile.js" />
 /// <reference path="../hello.js" />
 /// <reference path="../libs/fpsmeter.js" />
@@ -14,7 +15,6 @@
 /// <reference path="../MV_OriginalFile/rpg_scenes.js" />
 /// <reference path="../MV_OriginalFile/rpg_sprites.js" />
 /// <reference path="../MV_OriginalFile/rpg_windows.js" />
-/// <reference path="Dummy.js" />
-/// <reference path="IntuitiveMenuButtonV3.js" />
-/// <reference path="PluginManagerExtender.js" />
-/// <reference path="Sprite_InteractiveButton.js" />
+/// <reference path="dummy.js" />
+/// <reference path="intuitivemenubuttonv3.js" />
+/// <reference path="sprite_interactivebutton.js" />

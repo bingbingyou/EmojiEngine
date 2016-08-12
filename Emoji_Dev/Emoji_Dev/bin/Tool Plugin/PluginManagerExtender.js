@@ -86,10 +86,11 @@ PluginManager.toBoolean = function (plugin, parameters) {
  * @author Lavra
  * @param {String} plugin The id of the plugin in the format <idName>.
  */
-PluginManager.setPluginID = function (plugin) {
+PluginManager.getPluginID = function (plugin) {
     return $plugins.filter(function (p) { return p.description.contains("<" + + ">"); })[0].parameters;
 };
 
+PluginManager.toPoint = function (plugin, parameters) { };
 
 
 

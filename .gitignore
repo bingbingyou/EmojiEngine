@@ -3,3 +3,6 @@
 ################################################################################
 
 /Emoji_Dev/.vs
+/Emoji_Dev/Emoji_Dev/obj/Debug
+/Emoji_Dev/packages
+/Emoji_Dev/Emoji_Dev/packages.config
