@@ -90,7 +90,10 @@ PluginManager.getPluginID = function (plugin) {
     return $plugins.filter(function (p) { return p.description.contains("<" + + ">"); })[0].parameters;
 };
 
-PluginManager.toPoint = function (plugin, parameters) { };
+PluginManager.toPoint = function (plugin, parameters) {
+    var param = PluginManager.toNumberList(plugin, parameters);
+    return new Point(param[0], param[1]);
+};
 
 
 
