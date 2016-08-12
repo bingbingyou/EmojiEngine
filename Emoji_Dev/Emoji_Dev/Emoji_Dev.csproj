@@ -59,12 +59,8 @@
     <Content Include="hello.js" />
     <Content Include="index.html" />
     <Content Include="main.js" />
-    <Content Include="scripts\Dummy.js" />
-    <Content Include="scripts\IntuitiveMenuButtonV3.js" />
     <Content Include="bin\Tool Plugin\PluginManagerExtender.js" />
-    <Content Include="scripts\Sprite_InteractiveButton.js" />
     <Content Include="package.json" />
-    <None Include="scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
