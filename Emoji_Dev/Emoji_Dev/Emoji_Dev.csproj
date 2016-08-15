@@ -72,9 +72,10 @@
     <Content Include="MV_OriginalFile\rpg_scenes.js" />
     <Content Include="MV_OriginalFile\rpg_sprites.js" />
     <Content Include="MV_OriginalFile\rpg_windows.js" />
-    <Content Include="package.json" />
     <Content Include="scripts\Dummy.js" />
     <Content Include="scripts\IntuitiveMenuButtonV3.js" />
+    <Content Include="scripts\JavaScript.js" />
+    <Content Include="scripts\Scene_Wardrobe.js" />
     <Content Include="scripts\Sprite_InteractiveButton.js" />
     <None Include="scripts\_references.js" />
     <Content Include="Web.config" />

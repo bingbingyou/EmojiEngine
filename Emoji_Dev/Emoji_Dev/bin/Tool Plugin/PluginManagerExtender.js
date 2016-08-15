@@ -6,11 +6,15 @@
  * To be use for create plugins with more clean code.
  * <EmojiEngine>
  * @author Nio Kasgami
- * @version 3.00
- * @license  MIT
+ * @version 3.1.0
+ * @license  https://github.com/niokasgami/EmojiEngine/blob/master/LICENSE ( Under Tool Plugin license)
  * @requires nothing
  * =========================================================================
  */
+
+"use strict";
+var imported = imported || {};
+imported.PluginManager = "2.0.0";
 
 //==============================================================================
 // ■ PluginManager
@@ -22,6 +26,7 @@
  * @param {Plugin} plugin The plugin variable.
  * @param {String} parameters The parameters name in string.
  * @static
+ * @deprecated since 2.0.0
  */
 PluginManager.toNumberArray = function (plugin, parameters) {
     var oldString = String(plugin[parameters]);
@@ -35,6 +40,7 @@ PluginManager.toNumberArray = function (plugin, parameters) {
  * @param {Plugin} plugin The plugin variable.
  * @param {String} parameters The parameters name in string.
  * @static
+ * @deprecated since 2.00
  */
 PluginManager.toStringArray = function (plugin, parameters) {
     var oldString = String(plugin[parameters]);
@@ -50,7 +56,7 @@ PluginManager.toStringArray = function (plugin, parameters) {
  * @static
  */
 PluginManager.toNumberList = function (plugin, parameters) {
-    return plugin[parameters].split(',').map(function (i) { return Number(i) || 0; });
+    return plugin[parameters].split(",").map(function (i) { return Number(i) || 0; });
 };
 
 /**
@@ -71,12 +77,12 @@ PluginManager.toStringList = function (plugin, parameters) {
  */
 PluginManager.toBoolean = function (plugin, parameters) {
     var n = plugin[parameters];
-    if (n === 'true') {
+    if (n === "true" || n === "1") {
         return true;
-    } else if (n === 'false') {
+    } else if (n === "false" || n === "0") {
         return false;
     } else {
-        throw new Error(parameters + ' is a boolean. Please set it to true or false only.');
+        throw new Error(parameters + " is a boolean. Please set it to true or false only.");
     }
 };
 
@@ -87,13 +93,68 @@ PluginManager.toBoolean = function (plugin, parameters) {
  * @param {String} plugin The id of the plugin in the format <idName>.
  */
 PluginManager.getPluginID = function (plugin) {
-    return $plugins.filter(function (p) { return p.description.contains("<" + + ">"); })[0].parameters;
+    return $plugins.filter(function (p) { return p.description.contains("<" + plugin + ">"); })[0].parameters;
 };
 
+/**
+ * Will convert the parameters string into a Point.
+ * It's will works like using a point variables in code.
+ * the syntax in the pluginManager is 1,0
+ * @param {Plugin} plugin The plugin variable.
+ * @param {String} parameters The parameters name in string.
+ */
 PluginManager.toPoint = function (plugin, parameters) {
     var param = PluginManager.toNumberList(plugin, parameters);
     return new Point(param[0], param[1]);
 };
 
+// TODO : make sure the bitmap preload on the assignation??
+PluginManager.toBitmap = function (plugin, parameters, folder) {
+    var bitmap = plugin[parameters];
+};
+
+// Convert to number I guess? Not that super useful since it's a easy to do methods.
+PluginManager.toNumber = function (plugin, parameters) { };
 
 
+/**
+ * Will convert the parameters into ANY JS legal Array.
+ * The syntax is [someNumber,String,[String,Boolean],andAgainSomeValidArrayOperator]
+ * @static 
+ * @param {PluginManager} plugin 
+ * @param {string} parameters 
+ * @returns {Array<any>} 
+ */
+PluginManager.toArray = function(plugin, parameters) {
+    var array = JSON.parse(plugin[parameters]);
+    try {
+        if (!(array instanceof Array)) {
+            throw "Let's force our parameters to be an array...";
+        }
+    } catch (e) {
+        throw new Error(parameters + " is not a valid array");
+    }
+    return array;
+};
+//===============================================================================
+// => END : Emoji
+//===============================================================================
+
+
+/**
+ * Deprecated Members.
+ */
+Object.defineProperties(PluginManager,
+{
+    toNumberArray : {
+        get: function() {
+            console.warn("PluginManager.ToNumberArray is deprecated and will be removed in the next update. Please use toArray instead.");
+        }
+    },
+
+    toStringArray : {
+        get function() {
+            console.warn("PluginManager.toStringArray is deprecated and will be removed in the next update. Please use toArray instead.")
+        }
+    }
+});
