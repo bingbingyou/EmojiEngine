@@ -6,7 +6,7 @@
  * To be use for create plugins with more clean code.
  * <EmojiEngine>
  * @author Nio Kasgami
- * @version 3.1.0
+ * @version 2.00
  * @license  https://github.com/niokasgami/EmojiEngine/blob/master/LICENSE ( Under Tool Plugin license)
  * @requires nothing
  * =========================================================================
