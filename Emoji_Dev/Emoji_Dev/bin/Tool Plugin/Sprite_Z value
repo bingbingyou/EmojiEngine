@@ -1,0 +1,67 @@
+/*:
+ * =========================================================================
+ *  ■ Basic Header
+ * -------------------------------------------------------------------------
+ * @plugindesc Extends the Sprite class for add a False Z value 
+ * and add custom functions for resort the children on those Z value
+ * @author Nio Kasgami
+ * @version 1.0.0
+ * @license  https://github.com/niokasgami/EmojiEngine/blob/master/LICENSE ( Under Tool Plugin license)
+ * @requires nothing
+ * =========================================================================
+ */
+
+(function(){
+
+    var oldInit = Sprite.prototype.initialize;
+    Sprite.prototype.initialize = function(bitmap){
+        oldInit.call(this,bitmap);
+
+        /**
+         * add false Z value for permit function to resort
+         * child in the scene
+         * @type {Number}
+         */
+        this._z = 0;
+    }
+    
+    /**
+     * Define a Z property
+     * @property {Number} z
+     */
+    Object.defineProperty(Sprite.prototype, 'z', {
+        get: function(){
+            return this._z;
+        },
+        set function(value){
+            if(this._z !== value){
+                this._z = value;
+            }
+        }
+        configurable: true
+    });
+
+    /**
+     * Will resort the child in the scene
+     * it's require that the Sprites have a proper z 
+     * @protected
+     */
+    Scene_Base.prototype.resortChildren = function(){
+        this.children.sort(function(a,b){
+            return a.z - b.z;
+        });
+    };
+
+    /**
+     * Will remove EVERY children who have the said Z value.
+     * @param {Number} z
+     * @protected
+     */
+    Scene_Base.prototype.BatchRemoveChildren = function(z){
+        for(var i = children.length- 1; i >= 0; --i) {
+            if(this.children[i].z === z){
+                this.removeChildAt(i);
+            }
+        }
+    };
+})();
