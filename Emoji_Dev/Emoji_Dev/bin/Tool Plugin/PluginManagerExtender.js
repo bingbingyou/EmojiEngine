@@ -134,14 +134,27 @@ PluginManager.toClampedNumber = function (plugin, parameters, min, max) {
  * @static
  * @param {PluginManager} plugin
  * @param {String} parameters
+ * @return {Global | String}
  */
 PluginManager.toGlobal = function (plugin, parameters) {
     if (plugin[parameters] in window) {
         return window[plugin[parameters]];
     } else {
-        throw new Error(parameters + 'is undefined or out of the global scope.');
+        console.log(parameters + 'seem undefined then returning original string.');
+        return PluginManager.toString(plugin, parameters);
     }
 };
+
+/**
+ * Will Return the original string
+ * @static
+ * @param {PluginManager} plugin
+ * @param {String} parameters
+ * @returns {String}
+ */
+PluginManager.toString = function(plugin, parameters){
+    return String(plugin[parameters]);
+}
 
 //===============================================================================
 // => END : Emoji
