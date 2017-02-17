@@ -6,7 +6,7 @@
  * To be use for create plugins with more clean code.
  * <EmojiEngine>
  * @author Nio Kasgami
- * @version 4.0.0
+ * @version 3.5.0
  * @license  https://github.com/niokasgami/EmojiEngine/blob/master/LICENSE ( Under Tool Plugin license)
  * @requires nothing
  * =========================================================================
@@ -14,7 +14,7 @@
 
 'use strict';
 var imported = imported || {};
-imported.PluginManager = '4.0.0';
+imported.PluginManager = '3.5.0';
 
 //==============================================================================
 // ■ PluginManager
